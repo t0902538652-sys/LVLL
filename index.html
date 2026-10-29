@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>LVLL Band – Members</title>
+
+    <!-- สำคัญมากสำหรับมือถือ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ฟอนต์ Kanit -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
+            background: #f4f7ff;
+            color: #0b1b3b;
+            font-size: 18px;
+        }
+
+        /* ---------- หน้า Intro ตอนแรก ---------- */
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, #42a5f5 0, #0d47a1 45%, #021526 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .intro-title {
+            font-size: 10rem;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        .intro-btn {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            border-radius: 999px;
+            border: none;
+            background: #ffffff;
+            color: #0d47a1;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+        }
+
+        .intro-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+            background: #bbdefb;
+            color: #021526;
+        }
+
+        .intro-hidden {
+            animation: fadeOutIntro 0.5s ease forwards;
+        }
+
+        @keyframes fadeOutIntro {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* ---------- ส่วนเว็บหลัก ---------- */
+
+        header {
+            background: linear-gradient(135deg, #0d47a1, #42a5f5);
+            color: white;
+            padding: 26px 20px 32px;
+            text-align: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .logo-link {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .logo-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.07) rotate(5deg);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
+            border-color: #bbdefb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 24px auto 80px;
+            padding: 0 18px;
+        }
+
+        .band-info {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .band-info h2 {
+            margin-bottom: 10px;
+            color: #0d47a1;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        /* ---------- การ์ดสมาชิก ---------- */
+
+        .member-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            padding-bottom: 120px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 40, 120, 0.14);
+            padding: 18px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            border: 2px solid transparent;
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background 0.18s ease,
+                border 0.18s ease;
+        }
+
+        .member-card.show {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .member-card:hover {
+            background: #eef4ff;
+        }
+
+        .member-card.focus {
+            transform: scale(1.03);
+            box-shadow: 0 10px 24px rgba(0, 40, 120, 0.26);
+            border-color: #1565c0;
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            min-height: 150px;
+        }
+
+        .member-thumb {
+            width: 140px;
+            height: 140px;
+            border-radius: 18px;
+            object-fit: cover;
+            background: #dbe7ff;
+            flex-shrink: 0;
+        }
+
+        .member-maintext {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .member-nickname-big {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0d47a1;
+            margin-bottom: 6px;
+        }
+
+        .member-hint {
+            font-size: 0.95rem;
+            color: #607d8b;
+        }
+
+        /* ---------- กล่องข้อมูลด้านใน ---------- */
+
+        .member-detail-wrapper {
+            margin-top: 0;
+        }
+
+        .member-detail-inner {
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+            border-radius: 12px;
+            border-left: 5px solid #1565c0;
+            margin-top: 12px;
+            padding: 0 14px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.97);
+            transform-origin: top center;
+            transition:
+                max-height 0.3s ease-out,
+                padding 0.3s ease-out,
+                opacity 0.25s ease-out,
+                transform 0.25s ease-out;
+        }
+
+        .member-card.active .member-detail-inner {
+            max-height: 420px;
+            padding: 14px 16px 16px;
+            opacity: 1;
+            transform: scale(1.03);
+        }
+
+        .member-header-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .member-name-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-circle {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #1565c0;
+            color: #fff;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0d47a1;
+        }
+
+        .role-badge {
+            background: #e3f2fd;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            color: #0d47a1;
+            border: 1px solid #90caf9;
+            white-space: nowrap;
+        }
+
+        .member-nickname-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .nickname-label {
+            font-size: 0.85rem;
+            color: #1565c0;
+            background: #e8f0ff;
+            border-radius: 999px;
+            padding: 2px 8px;
+        }
+
+        .member-nickname {
+            font-size: 1rem;
+            color: #1e3c72;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 6px 0 10px;
+        }
+
+        .tag-pill {
+            font-size: 0.8rem;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: #bbdefb;
+            color: #0b1b3b;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1565c0;
+            margin-top: 6px;
+            margin-bottom: 3px;
+        }
+
+        .member-description {
+            font-size: 0.98rem;
+            color: #37474f;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #607d8b;
+            padding: 30px 10px 40px;
+        }
+
+        /* ---------- ปรับสำหรับมือถือ ---------- */
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+            }
+
+            .intro-title {
+                font-size: 3.2rem; /* จาก 10rem ลดให้พอดีจอมือถือ */
+                margin-bottom: 16px;
+            }
+
+            .intro-btn {
+                width: 90%;
+                max-width: 260px;
+            }
+
+            header {
+                padding: 20px 16px 24px;
+            }
+
+            .logo-link {
+                width: 140px;
+                height: 140px;
+            }
+
+            .container {
+                padding: 0 14px;
+                margin: 18px auto 60px;
+            }
+
+            .band-info h2 {
+                font-size: 1.5rem;
+            }
+
+            /* การ์ด: ให้รูปอยู่บน ตัวหนังสือข้างล่าง เวอร์ชันมือถือ */
+            .member-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+                min-height: auto;
+            }
+
+            .member-thumb {
+                width: 150px;
+                height: 150px;
+            }
+
+            .member-maintext {
+                align-items: center;
+            }
+
+            .member-nickname-big {
+                font-size: 1.4rem;
+            }
+
+            .member-card {
+                padding: 14px 12px;
+            }
+
+            /* เวลา focus บนมือถือ ให้ขยายเบากว่าบนคอม */
+            .member-card.focus {
+                transform: scale(1.015);
+            }
+
+            .member-detail-inner {
+                padding: 0 10px;
+            }
+
+            .member-card.active .member-detail-inner {
+                padding: 10px 10px 12px;
+            }
+
+            .member-header-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .role-badge {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- หน้า Intro ตอนแรก -->
+<div class="intro-screen" id="introScreen">
+    <div class="intro-title">LVLL</div>
+    <button class="intro-btn" id="introButton">ทำความรู้จักกับวงของพวกเรา</button>
+</div>
+
+<!-- เว็บหลัก -->
+<header>
+    <div class="logo-wrapper">
+        <a class="logo-link">
+            <img src="https://i.postimg.cc/R6QHkrFN/Screenshot-2026-10-29-112949.png"
+                 alt="LVLL Logo">
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    <section class="band-info">
+        <h2>สมาชิกวง LVLL</h2>
+    </section>
+
+    <section class="member-list">
+
+        <!-- สมาชิก 1: โอชิ -->
+        <div class="member-card">
+            <div class="member-header">
+                <img class="member-thumb" src="https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.15752-9/868072150_2384685735607259_4569358461749410733_n.jpg?_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=E9Zq_XMUuj8Q7kNvwEwq6yk&_nc_oc=AdrX3k865ZsR-HI-hJoBWG2FV3sF4Kvtl_ExcfLC2cBHH-qCmSw_GznmM3KZNWY10dVCZxlHQfCkBfL6WTD4xMgk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk22-8.fna&_nc_ss=7f22e&oh=03_Q7cD6wHP1QELR6zytNZ5epSNO7bJg_3_-_vZp93mI_Dt7_x59A&oe=6B0A5EB7" alt="โอชิ">
+                <div class="member-maintext">
+                    <div class="member-nickname-big">โอชิ</div>
+                    <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของโอชิ</div>
+                </div>
+            </div>
+            <div class="member-detail-wrapper">
+                <div class="member-detail-inner">
+                    <div class="member-header-line">
+                        <div class="member-name-box">
+                            <div class="icon-circle">O</div>
+                            <div class="member-name">ศิวกร บุญสนอง</div>
+                        </div>
+                        <div class="role-badge">นักร้องหลัก | Main Vocal</div>
+                    </div>
+                    <div class="member-nickname-line">
+                        <span class="nickname-label">Nickname</span>
+                        <span class="member-nickname">โอชิ</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">คุยคนเดียวเก่ง</span>
+                        <span class="tag-pill">เอ็นเตอร์เทนเก่ง</span>
+                        <span class="tag-pill">Center ของวง</span>
+                    </div>
+                    <div class="section-title">จุดเด่น</div>
+                    <div class="member-description">
+                        Enegryเหลือล้น⚡ พูดมาก ความจำสั้น ราชาอาฟาต้า🌲
+                    </div>
+                    <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
+                    <div class="member-description">
+                        ป็อปร็อค (Poprock), ร็อค (Rock)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- สมาชิก 2: อิคคิว -->
+        <div class="member-card">
+            <div class="member-header">
+                <img class="member-thumb" src="https://scontent.fbkk22-4.fna.fbcdn.net/v/t1.15752-9/868866550_1669964621131116_7944403914659317656_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_ohc=XnMsQ8QnVbUQ7kNvwF4X9_V&_nc_oc=AdrPozyFMMqCWwfkV9nXs8caqwyF95A-9w8CpvZUwjSAjsAJbvbHnvil4a2B9fyBI6lA871KKNRAk0wl9gfrkVYT&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk22-4.fna&_nc_ss=7f22e&oh=03_Q7cD6wHZuRXPS9Njkq5W74HvhvxN6PLX3G4RjBmIn-kAtORy9Q&oe=6B0A3ABD" alt="อิคคิว">
+                <div class="member-maintext">
+                    <div class="member-nickname-big">อิคคิว</div>
+                    <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของอิคคิว</div>
+                </div>
+            </div>
+            <div class="member-detail-wrapper">
+                <div class="member-detail-inner">
+                    <div class="member-header-line">
+                        <div class="member-name-box">
+                            <div class="icon-circle">Ik</div>
+                            <div class="member-name">ธรรศธีรืทธิ์ มังคลานนทชัย</div>
+                        </div>
+                        <div class="role-badge">มือกลอง | Drummer</div>
+                    </div>
+                    <div class="member-nickname-line">
+                        <span class="nickname-label">Nickname</span>
+                        <span class="member-nickname">อิคคิว</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">จังหวะมั่นคง</span>
+                        <span class="tag-pill">สายร็อก</span>
+                        <span class="tag-pill">ตีโหดเหมือนโกรธนักร้อง</span>
+                    </div>
+                    <div class="section-title">จุดเด่น</div>
+                    <div class="member-description">
+                        ของใหม่ดีกว่าของเก่า
+                    </div>
+                    <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
+                    <div class="member-description">
+                        ร็อค (Rock), เมทัล (Metal)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- สมาชิก 3: นาย -->
+        <div class="member-card">
+            <div class="member-header">
+                <img class="member-thumb" src="https://scontent.fbkk29-2.fna.fbcdn.net/v/t1.15752-9/869218399_1585183539597245_6739060194889579190_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_ohc=_ev7gShP8UMQ7kNvwGDWXcg&_nc_oc=Adou-Tg8NZOwr_xbCLtAhUNUI93w19C2fA66Zy0YvqKJM45R_M2DdswHWdpeTkgOnIXzj0jmLTPs0JbhILZHG20-&_nc_zt=23&_nc_ht=scontent.fbkk29-2.fna&_nc_ss=7b6a8&oh=03_Q7cD6wG_8Et4zxh26TyiL70OFtj4ojBX2TC5aajTTOKEmF-lJA&oe=6B0A50A3" alt="นาย">
+                <div class="member-maintext">
+                    <div class="member-nickname-big">นาย</div>
+                    <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของนาย</div>
+                </div>
+            </div>
+            <div class="member-detail-wrapper">
+                <div class="member-detail-inner">
+                    <div class="member-header-line">
+                        <div class="member-name-box">
+                            <div class="icon-circle">N9</div>
+                            <div class="member-name">ณภัทร ออง</div>
+                        </div>
+                        <div class="role-badge">มือเบส / คอรัส</div>
+                    </div>
+                    <div class="member-nickname-line">
+                        <span class="nickname-label">Nickname</span>
+                        <span class="member-nickname">นาย</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">หัวหน้าวง</span>
+                        <span class="tag-pill">ได้แค่เดินมาส่ง</span>
+                        <span class="tag-pill">ใจเย็น</span>
+                    </div>
+                    <div class="section-title">จุดเด่น</div>
+                    <div class="member-description">
+                        ชอบปรับตัวกับสิ่งต่าง ๆ ฟังและเล่นแนวเพลงที่หลากหลายมาก
+                    </div>
+                    <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
+                    <div class="member-description">
+                        Jazz, Neo soul, R&B, Pop, Funk, Rock, K‑Pop และ Alternative Rock
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- สมาชิก 4: นะโม -->
+        <div class="member-card">
+            <div class="member-header">
+                <img class="member-thumb" src="https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.15752-9/866273664_2624463524671655_2196793008001247080_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_ohc=c87JtDvs29cQ7kNvwFFP4Po&_nc_oc=Ado7qHTVpjDmusUSIsQK2izyaXxgNGyBsOXVzPq1ddpY1tvJrZeYQYLmqU5WpDYvJyTyKrNX5f4yMWLlvwq6j_F8&_nc_zt=23&_nc_ht=scontent.fbkk22-8.fna&_nc_ss=7b6a8&oh=03_Q7cD6wG3phFDQamZlUMJrLtepOZ2m1qCS3Im_DNDqc-Z1xj6dA&oe=6B0A658F" alt="นะโม">
+                <div class="member-maintext">
+                    <div class="member-nickname-big">นะโม</div>
+                    <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของนะโม</div>
+                </div>
+            </div>
+            <div class="member-detail-wrapper">
+                <div class="member-detail-inner">
+                    <div class="member-header-line">
+                        <div class="member-name-box">
+                            <div class="icon-circle">Nm</div>
+                            <div class="member-name">วชิรวิทย์ จำรักษา</div>
+                        </div>
+                        <div class="role-badge">มือกีตาร์</div>
+                    </div>
+                    <div class="member-nickname-line">
+                        <span class="nickname-label">Nickname</span>
+                        <span class="member-nickname">นะโม</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">ริฟฟ์เท่ ๆ</span>
+                        <span class="tag-pill">บ้า</span>
+                        <span class="tag-pill">Improvise มั่ว</span>
+                    </div>
+                    <div class="section-title">จุดเด่น</div>
+                    <div class="member-description">
+                        นอกจากลิฟต์ก็ไม่มีใครเอาผมลง
+                    </div>
+                    <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
+                    <div class="member-description">
+                        ป็อปร็อค (Poprock), นูเมทัล (Nu‑metal)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- สมาชิก 5: กันต์ -->
+        <div class="member-card">
+            <div class="member-header">
+                <img class="member-thumb" src="https://scontent.fbkk29-7.fna.fbcdn.net/v/t1.15752-9/869218400_1094174453489195_4560631580318797523_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_ohc=wNNMS_UjTOkQ7kNvwGg4JDS&_nc_oc=Ado3EW3Rnfjfhb9IDrohpHpTcmkEcUBurMV4fLFVTy4W0xdPPQCELHaYuleLx_48aInVny0pRpqS7TmHVA4YLsi3&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fbkk29-7.fna&_nc_ss=7f22e&oh=03_Q7cD6wEqv2aupOVxwnPxnBCbRmzpcJ5xaTxDm9wnGZr388mOfA&oe=6B0A65E8" alt="กันต์">
+                <div class="member-maintext">
+                    <div class="member-nickname-big">กันต์</div>
+                    <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของกันต์</div>
+                </div>
+            </div>
+            <div class="member-detail-wrapper">
+                <div class="member-detail-inner">
+                    <div class="member-header-line">
+                        <div class="member-name-box">
+                            <div class="icon-circle">G</div>
+                            <div class="member-name">กรวิชญ์ จินตนา</div>
+                        </div>
+                        <div class="role-badge">มือกีตาร์</div>
+                    </div>
+                    <div class="member-nickname-line">
+                        <span class="nickname-label">Nickname</span>
+                        <span class="member-nickname">กันต์</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">เด่นกว่านักร้องก็คนนี้แหละ</span>
+                        <span class="tag-pill">เสาไฟฟ้าห้องซ้อม</span>
+                        <span class="tag-pill">สุดหล่อหอ7</span>
+                    </div>
+                    <div class="section-title">จุดเด่น</div>
+                    <div class="member-description">
+                        <!-- ยังเว้นไว้ ถ้าจะเขียนเพิ่มค่อยใส่ -->
+                    </div>
+                    <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
+                    <div class="member-description">
+                        ป็อปร็อค (Poprock)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- สมาชิก 6: มีนา -->
+        <div class="member-card">
+            <div class="member-header">
+                <img class="member-thumb" src="IMAGE_MEENA_URL" alt="มีนา">
+                <div class="member-maintext">
+                    <div class="member-nickname-big">มีนา</div>
+                    <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของมีนา</div>
+                </div>
+            </div>
+            <div class="member-detail-wrapper">
+                <div class="member-detail-inner">
+                    <div class="member-header-line">
+                        <div class="member-name-box">
+                            <div class="icon-circle">M</div>
+                            <div class="member-name">ณัฐกานต์ มนัยนิล</div>
+                        </div>
+                        <div class="role-badge">มือคีย์บอร์ด / คอรัส</div>
+                    </div>
+                    <div class="member-nickname-line">
+                        <span class="nickname-label">Nickname</span>
+                        <span class="member-nickname">มีนา</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">-</span>
+                        <span class="tag-pill">-</span>
+                        <span class="tag-pill">-</span>
+                    </div>
+                    <div class="section-title">จุดเด่น</div>
+                    <div class="member-description">
+                        -
+                    </div>
+                    <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
+                    <div class="member-description">
+                        -
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<footer>
+    © 2026 LVLL – Pop Band. All rights reserved.
+</footer>
+
+<script>
+    // ----------- ปุ่ม Intro -----------
+    const introScreen = document.getElementById('introScreen');
+    const introButton = document.getElementById('introButton');
+
+    introButton.addEventListener('click', () => {
+        introScreen.classList.add('intro-hidden');
+        setTimeout(() => {
+            introScreen.style.display = 'none';
+        }, 500);
+    });
+
+    const cards = document.querySelectorAll('.member-card');
+
+    // ----------- แสดงการ์ดครั้งแรกเมื่อเลื่อนลงมา (fade in) -----------
+    const appearObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                appearObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    cards.forEach(card => appearObserver.observe(card));
+
+    // ----------- โฟกัสทีละคน + เปิดกล่องข้อมูลอัตโนมัติ -----------
+    function updateFocusOnScroll() {
+        const viewportCenter = window.innerHeight / 2;
+        let closestCard = null;
+        let closestDistance = Infinity;
+
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(cardCenter - viewportCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCard = card;
+            }
+        });
+
+        if (!closestCard) return;
+
+        cards.forEach(card => {
+            if (card !== closestCard) {
+                card.classList.remove('focus', 'active');
+            }
+        });
+
+        closestCard.classList.add('focus', 'active');
+    }
+
+    window.addEventListener('load', updateFocusOnScroll);
+    window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(updateFocusOnScroll);
+    });
+</script>
+
+</body>
+</html>
