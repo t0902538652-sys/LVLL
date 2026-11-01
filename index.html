@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>LVLL Band – Members</title>
-
-    <!-- สำคัญมากสำหรับมือถือ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ฟอนต์ Kanit -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -23,7 +17,7 @@
             font-size: 18px;
         }
 
-        /* ---------- หน้า Intro ตอนแรก ---------- */
+        /* ---------- Intro ---------- */
         .intro-screen {
             position: fixed;
             inset: 0;
@@ -37,13 +31,7 @@
             text-align: center;
             padding: 20px;
         }
-
-        .intro-title {
-            font-size: 10rem;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-        }
-
+        .intro-title { font-size: 10rem; letter-spacing: 4px; margin-bottom: 12px; }
         .intro-btn {
             padding: 14px 32px;
             font-size: 1.1rem;
@@ -56,40 +44,23 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
             transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
         }
-
         .intro-btn:hover {
             transform: translateY(-2px) scale(1.03);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
             background: #bbdefb;
             color: #021526;
         }
+        .intro-hidden { animation: fadeOutIntro 0.5s ease forwards; }
+        @keyframes fadeOutIntro { to { opacity: 0; visibility: hidden; } }
 
-        .intro-hidden {
-            animation: fadeOutIntro 0.5s ease forwards;
-        }
-
-        @keyframes fadeOutIntro {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-
-        /* ---------- ส่วนเว็บหลัก ---------- */
-
+        /* ---------- Main ---------- */
         header {
             background: linear-gradient(135deg, #0d47a1, #42a5f5);
             color: white;
             padding: 26px 20px 32px;
             text-align: center;
         }
-
-        .logo-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 14px;
-        }
-
+        .logo-wrapper { display: flex; justify-content: center; margin-bottom: 14px; }
         .logo-link {
             display: inline-block;
             width: 200px;
@@ -100,46 +71,19 @@
             box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
-
-        .logo-link img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
+        .logo-link img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .logo-link:hover {
             transform: scale(1.07) rotate(5deg);
             box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
             border-color: #bbdefb;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 24px auto 80px;
-            padding: 0 18px;
-        }
+        .container { max-width: 900px; margin: 24px auto 80px; padding: 0 18px; }
+        .band-info { text-align: center; margin-bottom: 24px; }
+        .band-info h2 { margin-bottom: 10px; color: #0d47a1; font-weight: 600; font-size: 1.8rem; }
 
-        .band-info {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .band-info h2 {
-            margin-bottom: 10px;
-            color: #0d47a1;
-            font-weight: 600;
-            font-size: 1.8rem;
-        }
-
-        /* ---------- การ์ดสมาชิก ---------- */
-
-        .member-list {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            padding-bottom: 120px;
-        }
+        /* ---------- Cards ---------- */
+        .member-list { display: flex; flex-direction: column; gap: 28px; padding-bottom: 120px; }
 
         .member-card {
             background: white;
@@ -150,45 +94,21 @@
             opacity: 0;
             transform: translateY(30px);
             border: 2px solid transparent;
-            transition:
-                transform 0.18s ease,
-                box-shadow 0.18s ease,
-                background 0.18s ease,
-                border 0.18s ease;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border 0.18s ease;
         }
-
-        .member-card.show {
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
+        .member-card.show { animation: fadeInUp 0.5s ease forwards; }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .member-card:hover {
-            background: #eef4ff;
-        }
-
+        .member-card:hover { background: #eef4ff; }
         .member-card.focus {
             transform: scale(1.03);
             box-shadow: 0 10px 24px rgba(0, 40, 120, 0.26);
             border-color: #1565c0;
         }
 
-        .member-header {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            min-height: 150px;
-        }
-
+        .member-header { display: flex; align-items: center; gap: 24px; min-height: 150px; }
         .member-thumb {
             width: 140px;
             height: 140px;
@@ -197,31 +117,12 @@
             background: #dbe7ff;
             flex-shrink: 0;
         }
+        .member-maintext { display: flex; flex-direction: column; justify-content: center; }
+        .member-nickname-big { font-size: 1.6rem; font-weight: 600; color: #0d47a1; margin-bottom: 6px; }
+        .member-hint { font-size: 0.95rem; color: #607d8b; }
 
-        .member-maintext {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .member-nickname-big {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #0d47a1;
-            margin-bottom: 6px;
-        }
-
-        .member-hint {
-            font-size: 0.95rem;
-            color: #607d8b;
-        }
-
-        /* ---------- กล่องข้อมูลด้านใน ---------- */
-
-        .member-detail-wrapper {
-            margin-top: 0;
-        }
-
+        /* ---------- Detail box ---------- */
+        .member-detail-wrapper { margin-top: 0; }
         .member-detail-inner {
             background: linear-gradient(135deg, #e3f2fd, #ffffff);
             border-radius: 12px;
@@ -233,15 +134,10 @@
             opacity: 0;
             transform: scale(0.97);
             transform-origin: top center;
-            transition:
-                max-height 0.3s ease-out,
-                padding 0.3s ease-out,
-                opacity 0.25s ease-out,
-                transform 0.25s ease-out;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.25s ease-out, transform 0.25s ease-out;
         }
-
         .member-card.active .member-detail-inner {
-            max-height: 420px;
+            max-height: 500px;
             padding: 14px 16px 16px;
             opacity: 1;
             transform: scale(1.03);
@@ -254,13 +150,7 @@
             gap: 10px;
             margin-bottom: 6px;
         }
-
-        .member-name-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        .member-name-box { display: flex; align-items: center; gap: 8px; }
         .icon-circle {
             width: 26px;
             height: 26px;
@@ -273,13 +163,7 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
-        .member-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #0d47a1;
-        }
-
+        .member-name { font-size: 1.25rem; font-weight: 600; color: #0d47a1; }
         .role-badge {
             background: #e3f2fd;
             border-radius: 999px;
@@ -289,14 +173,7 @@
             border: 1px solid #90caf9;
             white-space: nowrap;
         }
-
-        .member-nickname-line {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
+        .member-nickname-line { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
         .nickname-label {
             font-size: 0.85rem;
             color: #1565c0;
@@ -304,19 +181,8 @@
             border-radius: 999px;
             padding: 2px 8px;
         }
-
-        .member-nickname {
-            font-size: 1rem;
-            color: #1e3c72;
-        }
-
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 6px 0 10px;
-        }
-
+        .member-nickname { font-size: 1rem; color: #1e3c72; }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
         .tag-pill {
             font-size: 0.8rem;
             padding: 3px 9px;
@@ -324,62 +190,41 @@
             background: #bbdefb;
             color: #0b1b3b;
         }
+        .section-title { font-size: 0.9rem; font-weight: 600; color: #1565c0; margin-top: 6px; margin-bottom: 3px; }
+        .member-description { font-size: 0.98rem; color: #37474f; }
 
-        .section-title {
+        /* ---------- Instagram button ---------- */
+        .ig-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 6px 14px;
+            border-radius: 999px;
             font-size: 0.9rem;
-            font-weight: 600;
-            color: #1565c0;
-            margin-top: 6px;
-            margin-bottom: 3px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
-
-        .member-description {
-            font-size: 0.98rem;
-            color: #37474f;
+        .ig-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(188, 24, 136, 0.35);
         }
+        .ig-link.ig-empty { display: none; }
 
-        footer {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #607d8b;
-            padding: 30px 10px 40px;
-        }
+        footer { text-align: center; font-size: 0.9rem; color: #607d8b; padding: 30px 10px 40px; }
 
-        /* ---------- ปรับสำหรับมือถือ ---------- */
+        /* ---------- Mobile ---------- */
         @media (max-width: 600px) {
-            body {
-                font-size: 16px;
-            }
-
-            .intro-title {
-                font-size: 3.2rem; /* จาก 10rem ลดให้พอดีจอมือถือ */
-                margin-bottom: 16px;
-            }
-
-            .intro-btn {
-                width: 90%;
-                max-width: 260px;
-            }
-
-            header {
-                padding: 20px 16px 24px;
-            }
-
-            .logo-link {
-                width: 140px;
-                height: 140px;
-            }
-
-            .container {
-                padding: 0 14px;
-                margin: 18px auto 60px;
-            }
-
-            .band-info h2 {
-                font-size: 1.5rem;
-            }
-
-            /* การ์ด: ให้รูปอยู่บน ตัวหนังสือข้างล่าง เวอร์ชันมือถือ */
+            body { font-size: 16px; }
+            .intro-title { font-size: 3.2rem; margin-bottom: 16px; }
+            .intro-btn { width: 90%; max-width: 260px; }
+            header { padding: 20px 16px 24px; }
+            .logo-link { width: 140px; height: 140px; }
+            .container { padding: 0 14px; margin: 18px auto 60px; }
+            .band-info h2 { font-size: 1.5rem; }
             .member-header {
                 flex-direction: column;
                 align-items: center;
@@ -387,76 +232,30 @@
                 gap: 12px;
                 min-height: auto;
             }
-
-            .member-thumb {
-                width: 150px;
-                height: 150px;
-            }
-
-            .member-maintext {
-                align-items: center;
-            }
-
-            .member-nickname-big {
-                font-size: 1.4rem;
-            }
-
-            .member-card {
-                padding: 14px 12px;
-            }
-
-            /* เวลา focus บนมือถือ ให้ขยายเบากว่าบนคอม */
-            .member-card.focus {
-                transform: scale(1.015);
-            }
-
-            .member-detail-inner {
-                padding: 0 10px;
-            }
-
-            .member-card.active .member-detail-inner {
-                padding: 10px 10px 12px;
-            }
-
-            .member-header-line {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .role-badge {
-                align-self: flex-start;
-            }
+            .member-thumb { width: 150px; height: 150px; }
+            .member-maintext { align-items: center; }
+            .member-nickname-big { font-size: 1.4rem; }
+            .member-card { padding: 14px 12px; }
+            .member-card.focus { transform: scale(1.015); }
+            .member-detail-inner { padding: 0 10px; }
+            .member-card.active .member-detail-inner { padding: 10px 10px 12px; }
+            .member-header-line { flex-direction: column; align-items: flex-start; }
+            .role-badge { align-self: flex-start; }
         }
     </style>
-</head>
-<head>
-    <meta charset="UTF-8">
-    <title>LVLL Band – Members</title>
-
-    <!-- รูปบน tab bar (favicon) -->
-    <link rel="icon" type="image/png"
-          href="https://i.postimg.cc/R6QHkrFN/Screenshot-2026-10-29-112949.png">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    ...
 </head>
 
 <body>
 
-<!-- หน้า Intro ตอนแรก -->
 <div class="intro-screen" id="introScreen">
     <div class="intro-title">LVLL</div>
     <button class="intro-btn" id="introButton">ทำความรู้จักกับวงของพวกเรา</button>
 </div>
 
-<!-- เว็บหลัก -->
 <header>
     <div class="logo-wrapper">
         <a class="logo-link">
-            <img src="https://i.postimg.cc/R6QHkrFN/Screenshot-2026-10-29-112949.png"
-                 alt="LVLL Logo">
+            <img src="https://i.postimg.cc/R6QHkrFN/Screenshot-2026-10-29-112949.png" alt="LVLL Logo">
         </a>
     </div>
 </header>
@@ -503,6 +302,7 @@
                     <div class="member-description">
                         ป็อปร็อค (Poprock), ร็อค (Rock)
                     </div>
+                    <a class="ig-link" data-ig="siwakron_boonsanong" target="https://www.instagram.com/https://www.instagram.com/siwakron_boonsanong//" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -542,6 +342,7 @@
                     <div class="member-description">
                         ร็อค (Rock), เมทัล (Metal)
                     </div>
+                    <a class="ig-link" data-ig="callmexekkyu" target="https://www.instagram.com/callmexekkyu/" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -581,6 +382,7 @@
                     <div class="member-description">
                         Jazz, Neo soul, R&B, Pop, Funk, Rock, K‑Pop และ Alternative Rock
                     </div>
+                    <a class="ig-link" data-ig="p9ntn9_n" target="https://www.instagram.com/p9ntn9_n/" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -620,6 +422,7 @@
                     <div class="member-description">
                         ป็อปร็อค (Poprock), นูเมทัล (Nu‑metal)
                     </div>
+                    <a class="ig-link" data-ig="nxmokubb" target="https://www.instagram.com/nxmokubb/" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -657,8 +460,9 @@
                     </div>
                     <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
                     <div class="member-description">
-                        ป็อปร็อค (Poprock)
+                        ร็อค (Rock) เมทัล (Metal)
                     </div>
+                    <a class="ig-link" data-ig="nevercall.meagain" target="https://www.instagram.com/nevercall.meagain/" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -666,7 +470,7 @@
         <!-- สมาชิก 6: มีนา -->
         <div class="member-card">
             <div class="member-header">
-                <img class="member-thumb" src="https://f.ptcdn.info/592/085/000/m1hkofssijMs24YT4S9-o.png" alt="มีนา">
+                <img class="member-thumb" src="https://scontent.fbkk29-3.fna.fbcdn.net/v/t1.15752-9/882513954_2042145293026820_658895308005179408_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_ohc=41K5hHb41-wQ7kNvwGqnXMU&_nc_oc=AdqD4TlIxXGzWN2iRTs0rJlJTuTi-gKPvYQZeeTY2pDaY9MuKFZa4WmQnBIuLoP5M0wXPUWi4KoneVMPBGXXsC07&_nc_zt=23&_nc_ht=scontent.fbkk29-3.fna&_nc_ss=7b6a8&oh=03_Q7cD6wGhr05QNSL1qofDfawQmrLphWf4Ej20Uu2hQDsDaVdmCw&oe=6B0E6A3B" alt="มีนา">
                 <div class="member-maintext">
                     <div class="member-nickname-big">มีนา</div>
                     <div class="member-hint">เลื่อนหรือโฟกัสเพื่อดูข้อมูลของมีนา</div>
@@ -691,15 +495,14 @@
                         <span class="tag-pill">วันๆเอาแต่นั่งเพ้อถึงเเต่เขา</span>
                     </div>
                     <div class="section-title">จุดเด่น</div>
-                   
                     <div class="member-description">
                         จะร้ายหรือจะรัก
                     </div>
                     <div class="section-title">สไตล์ดนตรีที่ชอบ</div>
-
                     <div class="member-description">
-                        ป็อปร็อค(Poprock) ป็อป(Pop) 
+                        ป็อปร็อค (Poprock) ป็อป (Pop)
                     </div>
+                    <a class="ig-link" data-ig="fai_fa.0" target="https://www.instagram.com/fai_fa.0/" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -712,20 +515,31 @@
 </footer>
 
 <script>
-    // ----------- ปุ่ม Intro -----------
+    // ----------- Instagram: ใส่ไอดีที่ data-ig ของแต่ละการ์ด (ไม่ต้องใส่ @) -----------
+    // ตัวอย่าง: <a class="ig-link" data-ig="oshi_xxx" ...>
+    // ถ้าเว้นว่างไว้ ปุ่มจะถูกซ่อนอัตโนมัติ
+    document.querySelectorAll('.ig-link').forEach(link => {
+        const user = (link.dataset.ig || '').trim().replace(/^@/, '');
+        if (!user) {
+            link.classList.add('ig-empty');
+            return;
+        }
+        link.href = 'https://www.instagram.com/' + encodeURIComponent(user) + '/';
+        link.textContent = '📷 @' + user;
+    });
+
+    // ----------- Intro -----------
     const introScreen = document.getElementById('introScreen');
     const introButton = document.getElementById('introButton');
 
     introButton.addEventListener('click', () => {
         introScreen.classList.add('intro-hidden');
-        setTimeout(() => {
-            introScreen.style.display = 'none';
-        }, 500);
+        setTimeout(() => { introScreen.style.display = 'none'; }, 500);
     });
 
     const cards = document.querySelectorAll('.member-card');
 
-    // ----------- แสดงการ์ดครั้งแรกเมื่อเลื่อนลงมา (fade in) -----------
+    // ----------- Fade in -----------
     const appearObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -733,13 +547,11 @@
                 appearObserver.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.2
-    });
+    }, { threshold: 0.2 });
 
     cards.forEach(card => appearObserver.observe(card));
 
-    // ----------- โฟกัสทีละคน + เปิดกล่องข้อมูลอัตโนมัติ -----------
+    // ----------- Focus + auto open -----------
     function updateFocusOnScroll() {
         const viewportCenter = window.innerHeight / 2;
         let closestCard = null;
@@ -749,7 +561,6 @@
             const rect = card.getBoundingClientRect();
             const cardCenter = rect.top + rect.height / 2;
             const distance = Math.abs(cardCenter - viewportCenter);
-
             if (distance < closestDistance) {
                 closestDistance = distance;
                 closestCard = card;
@@ -759,9 +570,7 @@
         if (!closestCard) return;
 
         cards.forEach(card => {
-            if (card !== closestCard) {
-                card.classList.remove('focus', 'active');
-            }
+            if (card !== closestCard) card.classList.remove('focus', 'active');
         });
 
         closestCard.classList.add('focus', 'active');
